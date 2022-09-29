@@ -11,7 +11,7 @@ export const App = () => {
 
     const options = Object.keys({ good, neutral, bad })
     const total = good + neutral + bad;
-    const percentage = Number(((good / total) * 100).toFixed(0));
+    const positivePercentage = Number(((good / total) * 100).toFixed(0));
 
     const leaveFeedback = (e) => {
         switch (e.target.name) {
@@ -43,7 +43,7 @@ export const App = () => {
                     neutral={neutral}
                     bad={bad}
                     total={total}
-                    positivePercentage={percentage}
+                    positivePercentage={positivePercentage}
                     />
                 }                    
             </Section>
