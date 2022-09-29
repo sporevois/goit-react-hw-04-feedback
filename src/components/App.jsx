@@ -9,7 +9,8 @@ export const App = () => {
     const [neutral, setNeutral] = useState(0);
     const [bad, setBad] = useState(0);
 
-    const options = Object.keys({ good, neutral, bad })
+    const results = { good, neutral, bad };
+    const btnOptions = Object.keys(results);
     const total = good + neutral + bad;
     const positivePercentage = Number(((good / total) * 100).toFixed(0));
 
@@ -31,7 +32,7 @@ export const App = () => {
         <div>
             <Section title="Please leave feedback">
                 <FeedbackOptions
-                    options={options}
+                    options={btnOptions}
                     leaveFeedback={leaveFeedback}
                 />
             </Section>
@@ -39,9 +40,7 @@ export const App = () => {
                 {!total
                     ? <Notification message="There is no feedback" />
                     : <Statistics
-                    good={good}
-                    neutral={neutral}
-                    bad={bad}
+                    results = {results}
                     total={total}
                     positivePercentage={positivePercentage}
                     />
