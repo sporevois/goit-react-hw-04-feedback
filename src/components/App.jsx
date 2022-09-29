@@ -11,8 +11,8 @@ export const App = () => {
 
     const results = { good, neutral, bad };
     const btnOptions = Object.keys(results);
-    const total = good + neutral + bad;
-    const positivePercentage = Number(((good / total) * 100).toFixed(0));
+    const totalResults = good + neutral + bad;
+    const positivePercentage = Number(((good / totalResults) * 100).toFixed(0));
 
     const leaveFeedback = (e) => {
         switch (e.target.name) {
@@ -37,11 +37,11 @@ export const App = () => {
                 />
             </Section>
             <Section title="Statistics">
-                {!total
+                {!totalResults
                     ? <Notification message="There is no feedback" />
                     : <Statistics
                     results = {results}
-                    total={total}
+                    total={totalResults}
                     positivePercentage={positivePercentage}
                     />
                 }                    
